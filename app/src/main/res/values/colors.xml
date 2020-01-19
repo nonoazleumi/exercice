@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#590059</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorOxfordBlue">#590059</color>
+    <color name="colorOxfordBubles">#ffe5f2</color>
+    <color name="colorSlateGrey">#ff6c809b</color>
+    <color name="colorPrimaryDark">#590059</color>
+    <color name="colorAccent">#ff198d</color>
+</resources>

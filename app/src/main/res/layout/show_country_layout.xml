@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data" type="com.example.myapplication.data.ShowCountryData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/icon_order_by_asc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_asc_state"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:padding="15dp"
+            app:layout_constraintRight_toLeftOf="@id/icon_order_by_desc"/>
+
+        <ImageView
+            android:padding="15dp"
+            android:id="@+id/icon_order_by_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/desc_inactive"
+            app:layout_constraintLeft_toRightOf="@id/icon_order_by_asc"
+            app:layout_constraintRight_toLeftOf="@id/icon_order_by_area_big"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"/>
+
+        <ImageView
+            android:padding="15dp"
+            android:id="@+id/icon_order_by_area_big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/area_big_inactive"
+            app:layout_constraintLeft_toRightOf="@id/icon_order_by_desc"
+            app:layout_constraintRight_toLeftOf="@id/icon_order_by_area_little"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"/>
+
+        <ImageView
+            android:padding="15dp"
+            android:id="@+id/icon_order_by_area_little"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/area_little_inactive"
+            app:layout_constraintLeft_toRightOf="@id/icon_order_by_area_big"
+            app:layout_constraintRight_toRightOf="parent"
+
+            app:layout_constraintBottom_toBottomOf="@id/guideline"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <View
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:padding="10dp"
+            android:id="@+id/line_top"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/show_country_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@id/line_top"
+            app:layout_constraintBottom_toTopOf="@id/line_bottom"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:itemCount="3"
+            tools:listitem="@layout/country_item_layout"
+            android:maxHeight="150dp"
+            />
+
+        <View
+            android:padding="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/line_bottom"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/guideline2"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.90" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

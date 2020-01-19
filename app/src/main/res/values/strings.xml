@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="show_country_title">all countries</string>
+    <string name="show_country_details_title">country details</string>
+    <string name="there_is_no_border">this country doesnt have borders</string>
+    <string name="show_country_subttitle">טבלה של כל מדינות העולם</string>
+    <string name="show_country_explain">כדי לסדר בסדר עולה או יורד לפי השם באנגלית</string>
+    <string name="order_by_english_az">en az</string>
+    <string name="order_by_english_za">en za</string>
+    <string name="order_by_area_1">area 1+</string>
+    <string name="order_by_area_9">area 9—</string>
+</resources>
