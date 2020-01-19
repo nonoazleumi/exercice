@@ -5,6 +5,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    signingConfigs {
+        debug_sign {
+            storeFile file('/Users/noemieazerad/Downloads/MyApplication4/Keystore/debug.keystore')
+            storePassword 'android'
+            keyAlias = 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.example.myapplication"
@@ -19,6 +27,7 @@ android {
     }
     buildTypes {
         release {
+            signingConfig = signingConfigs.debug_sign
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
