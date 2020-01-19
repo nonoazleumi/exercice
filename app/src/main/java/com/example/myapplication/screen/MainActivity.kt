@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     fun getResourcesFlow():HashMap<String, String>?{
         val resourcesstring = HashMap<String, String>()
         resourcesstring.put("titleShowCountry", resources.getString(R.string.show_country_title))
