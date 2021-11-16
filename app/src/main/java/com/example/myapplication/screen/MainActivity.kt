@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(ShowCountryDetailsFragment.newInstance(flowStep.countryDetails, flowStep?.titleTxt))
                 }
             }
+
         })
 
         activityViewModel?.screenState?.observe(this, Observer { screenState->
