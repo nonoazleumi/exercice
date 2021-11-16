@@ -19,8 +19,8 @@ class CountryItemAdapter(private val countryList:List<Country>?, private val lis
     override fun onBindViewHolder(holder: CountryItemViewHolder, position: Int) {
         val countriesNameData = countryList?.get(position)
         holder.apply {
-            countryNameView.text = countriesNameData?.name
-            countryNameNativeView.text = countriesNameData?.nativeName
+            countryNameView.text = countriesNameData?.name?.common
+            countryNameNativeView.text = countriesNameData?.name?.official
             countryCell?.setOnClickListener {
                 listener?.onCountrySelected(countriesNameData)
             }

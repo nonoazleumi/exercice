@@ -67,7 +67,7 @@ abstract class BaseController<T> :Callback<T>,
     }
 
     companion object {
-        val BASE_URL = "https://restcountries.eu/rest/v2/"
+        val BASE_URL = "https://restcountries.com/v3.1/"
 
         private var sRetrofit: Retrofit? = null
 

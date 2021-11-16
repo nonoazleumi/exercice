@@ -77,7 +77,7 @@ class ShowCountryFragment :BaseFragment(), CountryItemAdapter.CountryItemAdapter
         binding.showCountryList.adapter = CountryItemAdapter(showCountryData?.countryList, this)
         binding.showCountryList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.showCountryList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-        val sortedList = showCountryData?.countryList?.sortedBy { it.name }
+        val sortedList = showCountryData?.countryList?.sortedBy { it.name?.common }
         binding.showCountryList.adapter = CountryItemAdapter(sortedList, this)
         lastIconSelected = binding.iconOrderByAsc
         binding.iconOrderByAsc.setImageResource(R.drawable.asc_active)
@@ -85,13 +85,13 @@ class ShowCountryFragment :BaseFragment(), CountryItemAdapter.CountryItemAdapter
 
         binding.iconOrderByAsc.setOnClickListener {
             iconSelected?.postValue(binding.iconOrderByAsc)
-            val sortedList = showCountryData?.countryList?.sortedBy { it.name }
+            val sortedList = showCountryData?.countryList?.sortedBy { it.name?.common }
             binding.showCountryList.adapter = CountryItemAdapter(sortedList, this)
         }
 
         binding.iconOrderByDesc.setOnClickListener {
             iconSelected?.postValue(binding.iconOrderByDesc)
-            val sortedList = showCountryData?.countryList?.sortedByDescending { it.name }
+            val sortedList = showCountryData?.countryList?.sortedByDescending { it.name?.common }
             binding.showCountryList.adapter = CountryItemAdapter(sortedList, this)
         }
 

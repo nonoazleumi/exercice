@@ -48,7 +48,7 @@ class MainViewModel :ViewModel(){
 
     fun onCountrySelected(country: Country){
         screenState.postValue(ScreenState.Waiting)
-        val getCountryDetailsController = GetCountryDetailsController(country.name)
+        val getCountryDetailsController = GetCountryDetailsController(country.name?.common)
         getCountryDetailsController.setListener(object:IResponse<List<Country>>{
             override fun onSuccess(result: List<Country>?) {
                 if(result!=null && result?.isNotEmpty() && result?.size>0){
@@ -73,7 +73,7 @@ class MainViewModel :ViewModel(){
     fun searchBorderCountryByCode(countrySelected:Country){
         val allBorderCountries = ArrayList<Country>()
         countrySelected.borders?.forEach { borderCountry->
-            val borderCountryList = allCountryList?.filter { it.alpha3Code==borderCountry }
+            val borderCountryList = allCountryList?.filter { it.cca3==borderCountry }
             borderCountryList?.let {
                 if(it.size>0){
                     allBorderCountries.add(it.get(0))
@@ -82,7 +82,7 @@ class MainViewModel :ViewModel(){
         }
         screenState.postValue(ScreenState.IDLE)
         stepInProcess.postValue(FlowStep.StepShowCountryDetails(
-            CountryDetails(countrySelected.name, allBorderCountries, countrySelected.nativeName),
+            CountryDetails(countrySelected.name?.common, allBorderCountries, countrySelected.name?.official),
             resourcesString?.get("titleDetailsCountry")))
     }
 

@@ -9,11 +9,7 @@ class Country() : Parcelable {
 
     @SerializedName("name")
     @Expose
-    var name: String? = null
-
-    @SerializedName("nativeName")
-    @Expose
-    var nativeName: String? = null
+    var name: CountryName? = null
 
     @SerializedName("area")
     @Expose
@@ -23,24 +19,22 @@ class Country() : Parcelable {
     @Expose
     var borders: List<String>? = null
 
-    @SerializedName("alpha3Code")
+    @SerializedName("cca3")
     @Expose
-    var alpha3Code: String? = null
+    var cca3: String? = null
 
     constructor(parcel: Parcel) : this() {
-        name = parcel.readString()
-        nativeName = parcel.readString()
+        name = parcel.readParcelable(CountryName::class.java.classLoader)
         area = parcel.readString()
         borders = parcel.createStringArrayList()
-        alpha3Code = parcel.readString()
+        cca3 = parcel.readString()
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(name)
-        parcel.writeString(nativeName)
+        parcel.writeParcelable(name, flags)
         parcel.writeString(area)
         parcel.writeStringList(borders)
-        parcel.writeString(alpha3Code)
+        parcel.writeString(cca3)
     }
 
     override fun describeContents(): Int {
